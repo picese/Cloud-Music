@@ -1,0 +1,46 @@
+<!--pages/play/play.wxml-->
+<view class='container'>
+  <view class='song'>
+    <text class='song-name'>{{ songname }}</text>
+    <text class='songer'>{{ singer }}</text>
+  </view>
+  <view class='lyric'>
+    <text wx:for="{{ lyric }}" wx:key="index">{{ item.text }}</text>
+  </view>
+</view>
+<view class='component'>
+    <progress percent="1" stroke-width="3" active />
+    <view class='controller'>
+      <text class="iconfont {{ playIcon }}"  bindtap="switch" data-format="{{ loop }}"></text>
+      <view class='play-controller'>
+        <text class="iconfont jiantou prev"></text>
+        <text class="iconfont bofang {{ play }}" bindtap="play" data-falg="{{falg}}"></text>
+        <text class="iconfont jiantou next"></text>
+      </view>
+      <text class="iconfont banben list" bindtap="toggel" data-index="{{ num }}"></text>
+    </view>
+  </view>
+
+  <!-- 播放列表 -->
+<view class="meun" wx:if="{{ isShow }}">
+  <view class="head">
+    <view class="order" data-format="{{ loop }}" bindtap="switch">
+      <view class="iconfont {{ playIcon }}"></view>
+      <text>{{ playName }}</text>
+    </view>
+    <view class="iconfont shanchu" bindtap="reset"></view>
+  </view>
+  <view class="box">
+    <view class="list" wx:for="{{ collectionList }}" wx:key="id">
+      <text class="name">{{ item.song }}</text>
+      <view class="singer">
+        <text>-{{ item.name }}</text>
+        <text class="iconfont bofang"></text>
+        <text class="iconfont guanbi" data-id="{{ item.id }}" bindtap="del"></text>
+      </view>
+      <text class="iconfont icon-yinyueshi"></text>
+    </view>
+    <view class="lists" wx:if="{{ collectionList == '' ? true : false }}">空空如也
+    </view>
+  </view>
+</view>

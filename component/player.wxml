@@ -1,0 +1,52 @@
+<!-- 播放器 -->
+<view class='player'>
+<block wx:if="{{ songMsg }}">
+ <navigator url="../play/play?cat={{ item.id }}&name={{ item.name }}&song={{ item.song }}" wx:for="{{ songMsg }}" wx:key="id">
+  <view class='song'>
+    <image src="http://y.gtimg.cn/music/photo_new/T002R300x300M000{{item.singerImg}}.jpg?max_age=2592000" class="slide-image" width="65" height="15" mode="aspectFill" />
+    <view class="player-songName">
+      <text class='song-name'>{{ item.song }}</text>
+      <text class='lyric'>音乐因你为动听</text>
+    </view>
+  </view>
+</navigator>
+</block>
+
+<block wx:else="{{ songMsg }}">
+<navigator>
+  <view class='song'>
+    <image src="../imgs/timg.jpg" class="slide-image" width="65" height="15" mode="aspectFill" />
+    <view class="player-songName">
+      <text class='song-name'>云音乐</text>
+      <text class='lyric'>音乐因你为动听</text>
+    </view>
+  </view>
+</navigator>
+</block>
+  <view class="iconfont iconfont {{ play }} play-btn" bindtap="play" data-falg="{{falg}}" ></view>
+  <view class="iconfont iconfont banben list-btn" bindtap="toggel" data-index="{{ num }}"></view>
+
+</view>
+
+<!-- 播放列表 -->
+<view class="meun" wx:if="{{ isShow }}">
+  <view class="head">
+    <view class="order" data-format="{{ loop }}" bindtap="switch">
+      <view class="iconfont {{ playIcon }}"></view>
+      <text>{{ playName }}</text>
+    </view>
+    <view class="iconfont shanchu" bindtap="reset"></view>
+  </view>
+  <view class="box">
+    <view class="list" wx:for="{{ collectionList }}" wx:key="id">
+      <view class="song-msg" bindtap="addSong" data-id="{{ item.id }}" data-name="{{item.name }}" data-song="{{item.song}}" data-img="{{ item.singerImg }}">
+        <text class="name">{{ item.song }}</text>
+        <text class="singer">-{{ item.name }}</text>
+      </view>
+      <text class="iconfont bofang"></text>
+      <text class="iconfont guanbi" data-id="{{ item.id }}" bindtap="del"></text>
+    </view>
+    <view class="lists" wx:if="{{ collectionList == '' ? true : false }}">空空如也
+    </view>
+  </view>
+</view>

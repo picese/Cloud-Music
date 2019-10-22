@@ -1,0 +1,185 @@
+/* pages/play/play.wxss */
+
+.container {
+  position: relative;
+}
+
+.song {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.song-name {
+  display: block;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+.songer {
+  display: block;
+  font-size: 14px;
+  margin: 0 auto;
+  padding-top: 10rpx;
+}
+
+.lyric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 980rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  line-height: 2;
+  letter-spacing: 2px;
+  font-size: 13px;
+  overflow-y: scroll;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lyric::-webkit-scrollbar {
+  display: none;
+}
+
+.component {
+  width: 100%;
+  height: 140rpx;
+  background-color: #38b0de;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.controller {
+  height: 140rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controller .iconfont {
+  font-size: 26px;
+}
+
+.play-controller {
+  width: 50%;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.prev {
+  transform: rotate(180deg);
+}
+
+.list {
+  width: 64rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+/* 播放列表 */
+
+.meun {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top: 2rpx solid #ccc;
+  padding-bottom: 140rpx;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx 20rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+}
+
+.order text {
+  font-size: 13px;
+  margin-left: 4rpx;
+  line-height: 48rpx;
+}
+
+.meun .box {
+  height: 574rpx;
+  overflow-y: scroll;
+}
+
+.meun .list {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  border-bottom: 2rpx solid #ccc;
+  margin-left: 40rpx;
+  width: 90%;
+  height: 86rpx;
+  line-height: 86rpx;
+}
+
+.meun .lists {
+  width: 30%;
+  height: 86rpx;
+  line-height: 600rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.meun .list .name {
+  max-width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 2;
+  font-size: 15px;
+}
+
+.meun .list .singer {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.meun .list .icon-yinyueshi {
+  margin-left: 30rpx;
+}
+
+.meun .list .singer .bofang {
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+
+.meun .list .singer .guanbi {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+image {
+  width: 46rpx;
+  height: 46rpx;
+  display: block;
+}

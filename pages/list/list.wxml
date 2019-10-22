@@ -1,0 +1,48 @@
+<!--pages/list/list.wxml-->
+<!-- 热门歌单 有数据显示，没数据隐藏 -->
+<block wx:if="{{ songList == '' ? false : true }}">
+  <!-- logo -->
+  <image src="{{ hotLogo }}" class="brand"></image>
+  <view class="title w200">{{ hotTitle }}</view>
+  <view class="random">
+    <text class="iconfont bofang"></text>
+    <text class="order">随机播放全部</text>
+  </view>
+  <!-- 歌单 -->
+  <view class="list">
+    <view class="item" wx:for="{{ songList }}" wx:key="id" data-name="{{ item.singer[0].name }}" data-song="{{ item.songname }}" data-id="{{ item.songmid }}" data-img="{{ item.albummid }}" bindtap="addSong">
+      <text class="name">{{ item.songname }}</text>
+      <view class="singer">
+        <block wx:for="{{ item.singer }}" wx:key="index">
+          <text>{{ item.name }}·</text>
+        </block>
+        <text>{{ item.albumname }}</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- 排行榜 有数据显示，没数据隐藏 -->
+<block wx:if="{{ rankingList == '' ? false : true }}">
+  <!-- logo -->
+  <image src="https://y.gtimg.cn/music/photo_new/T002R300x300M000{{ rankingLogo }}.jpg?max_age=2592000" class="brand"></image>
+  <view class="title w100">{{ rankingTitle }}</view>
+  <view class="random">
+    <text class="iconfont bofang"></text>
+    <text class="order">随机播放全部</text>
+  </view>
+  <!-- 歌单 -->
+  <view class="list">
+    <view class="item" wx:for="{{ rankingList }}" wx:key="id" data-name="{{ item.data.singer[0].name }}" data-song="{{ item.data.songname }}" data-id="{{ item.data.songmid }}" data-img="{{ item.data.albummid }}" bindtap="addSong">
+      <text class="name">{{ item.data.songname }}</text>
+      <view class="singer">
+        <block wx:for="{{ item.data.singer }}" wx:key="index">
+          <text>{{ item.name }}·</text>
+        </block>
+        <text>{{ item.data.albumname }}</text>
+      </view>
+    </view>
+  </view>
+</block>
+<!-- 播放控件 -->
+<player id="player" songmid="{{ songmid }}"></player>

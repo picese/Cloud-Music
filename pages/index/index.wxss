@@ -1,0 +1,186 @@
+/* pages/index/index.wxss */
+/** topBar **/
+
+.topBer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: conter;
+  box-sizing: border-box;
+  padding-bottom: 10rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  margin-top: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  font-size: 12px;
+  margin-left: 22rpx;
+}
+
+.search {
+  width: 70%;
+  height: 60rpx;
+  margin-left: 25rpx;
+}
+
+.search input {
+  border: 1rpx solid #ccc;
+  border-radius: 8rpx;
+  font-size: 12px;
+  height: 60rpx;
+}
+
+.search-btn {
+  width: 120rpx;
+  height: 70rpx;
+  font-size: 16px;
+  background-color: #f0ee87e5;
+}
+
+/* 轮播图 */
+
+.slide image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+/* 歌单  */
+
+.body {
+  padding-bottom: 140rpx;
+}
+
+.nav {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.default {
+  line-height: 100rpx;
+  text-align: center;
+  flex: 1;
+  border-right: 1px solid gainsboro;
+  color: #000;
+  background-color: #38b0de;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.red {
+  line-height: 100rpx;
+  text-align: center;
+  color: #fc5558;
+  flex: 1;
+  border-right: 1px solid gainsboro;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.show {
+  display: block;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+  text-align: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+
+.content>navigator {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: centr;
+  align-items: center;
+  padding: 14rpx 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.border {
+  border-bottom: 1rpx solid rgb(194, 192, 192);
+
+}
+
+.content .item image {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+}
+
+.content .border image {
+  width: 170rpx;
+  height: 186rpx;
+  display: block;
+}
+
+.content .item .songinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  line-height: 2.3;
+  margin-left: 20rpx;
+}
+
+.content .item .rankinginfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 20rpx;
+  line-height: 26rpx;
+  margin-top: -30rpx;
+  padding: 24rpx 0;
+}
+
+.content .item text {
+  display: block;
+  font-size: 13px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content .item .songinfo text:last-child {
+  color: #555;
+}

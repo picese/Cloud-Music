@@ -1,0 +1,58 @@
+<!--pages/index/index.wxml-->
+<!-- topBar -->
+<view class="topBer">
+  <view class="userinfo">
+    <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+    <open-data type="userNickName" class="userinfo-nickname"></open-data>
+  </view>
+  <view class="search" bindtap='search'>
+    <input placeholder=" 请输入歌名，歌手" cursor="5" />
+  </view>
+</view>
+
+<!-- 轮播图 -->
+<swiper class='slide' indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <swiper-item wx:for="{{ slider }}" wx:key="id">
+    <image src="{{ item.picUrl }}" mode="aspectFit" />
+  </swiper-item>
+
+</swiper>
+
+<!-- 歌单 -->
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected?'red':'default'}}" bindtap="selected">热门歌单</view>
+    <view class="{{unselected?'red':'default'}}" bindtap="unselected">排行榜</view>
+  </view>
+  <view class="{{selected?'show':'hidden'}}">
+    <view class="content">
+    <!-- 热门歌单 -->
+      <navigator url="../list/list?cat={{ item.dissid }}&title={{item.dissname }}" wx:for="{{ songLists }}" wx:key="id">
+        <view class="item">
+          <image src="{{ item.imgurl }}"></image>
+          <view class="songinfo">
+            <text>{{ item.creator.name }}</text>
+            <text>{{ item.dissname }}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 排行榜 -->
+  <view class="{{unselected?'show':'hidden'}}">
+    <view class="content">
+      <navigator url="../list/list?cat={{ item.id }}&title={{item.topTitle }}" wx:for="{{ rankingList }}" wx:key="id">
+        <view class="item border">
+          <image src="{{ item.picUrl }}"></image>
+          <view class="rankinginfo">
+            <text wx:for="{{ item.songList }}" wx:key="id">
+              {{ index+1 }}.{{ item.songname }}-{{ item.singername }}
+            </text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<!-- 播放控件 -->
+<player id="player"></player>
